@@ -21,8 +21,19 @@ This starts the webserver on localhost:8080. Go with your webbrowser on that sit
 
 ## Configure the project
 
-[https://github.com/korfuri/django-prometheus](https://github.com/korfuri/django-prometheus) This guides you through the setup.
+[https://docs.spring.io/spring-metrics/docs/current/public/prometheus](https://docs.spring.io/spring-metrics/docs/current/public/prometheus) This guides you through the setup.
 
-After setting up it should provide a `/metrics` endpoint for your application.
+You need to replace
+
+```gradle
+// this only works with spring boot 1.5
+    compile 'io.prometheus:simpleclient_common:latest.release'
+// with
+// this works with all gradle versions.
+    compile('io.micrometer:micrometer-registry-prometheus:latest.release')
+```
+
+After setting up it should provide a `/prometheus` endpoint for your application.
 
 Now you can let it scrape from prometheus or push the metrics to a Graphite DB.
+

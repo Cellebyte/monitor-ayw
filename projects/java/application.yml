@@ -2,4 +2,13 @@
 #   endpoints:
 #     web:
 #       exposure:
-#         include: "*"
+#         include: metrics,prometheus
+#   endpoint:
+#     metrics:
+#       enabled: true
+#     prometheus:
+#       enabled: true
+#   metrics:
+#     export:
+#       prometheus:
+#         enabled: true
